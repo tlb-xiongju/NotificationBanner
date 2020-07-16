@@ -188,6 +188,19 @@ open class GrowingNotificationBanner: BaseNotificationBanner {
 }
 
 public extension GrowingNotificationBanner {
+    func applyMoriStyle(titleAttributes: [NSAttributedString.Key: Any],
+                       subtitleAttributes: [NSAttributedString.Key: Any])
+    {
+        if let titleAttr = titleLabel?.attributedText.map(NSMutableAttributedString.init) {
+            titleAttr.addAttributes(titleAttributes, range: .init(location: 0, length: titleAttr.string.utf16.count))
+            titleLabel?.attributedText = titleAttr
+        }
+       
+        if let subtitleAttr = subtitleLabel?.attributedText.map(NSMutableAttributedString.init) {
+            subtitleAttr.addAttributes(subtitleAttributes, range: .init(location: 0, length: subtitleAttr.string.utf16.count))
+            subtitleLabel?.attributedText = subtitleAttr
+        }
+    }
     
     func applyStyling(cornerRadius: CGFloat? = nil,
                       titleFont: UIFont? = nil,
