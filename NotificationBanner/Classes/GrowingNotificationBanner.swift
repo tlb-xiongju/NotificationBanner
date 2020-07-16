@@ -81,7 +81,7 @@ open class GrowingNotificationBanner: BaseNotificationBanner {
     private let verticalSpacing: CGFloat = 14.0
     
     /// Spacing between title and subtitle
-    private let innerSpacing: CGFloat = 2.5
+    private let innerSpacing: CGFloat = 6.0
     
     /// The bottom most label of the notification if a subtitle is provided
     public private(set) var subtitleLabel: UILabel?
@@ -140,7 +140,7 @@ open class GrowingNotificationBanner: BaseNotificationBanner {
         if let title = title {
             titleLabel = UILabel()
             titleLabel!.font = titleFont
-            titleLabel!.numberOfLines = 0
+            titleLabel!.numberOfLines = 1
             titleLabel!.textColor = .white
             titleLabel!.text = title
             titleLabel!.setContentHuggingPriority(.required, for: .vertical)
